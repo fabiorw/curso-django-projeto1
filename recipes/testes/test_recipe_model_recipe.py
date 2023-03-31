@@ -52,7 +52,7 @@ class RecipeModelTest(RecipeTestBase):
         )
 
     def test_recipe_string_representation(self):
-        needed = 'Testing Representation'
+        needed = 'Testing Representationb'
         self.recipe.title = needed
         self.recipe.full_clean()
         self.recipe.save()
