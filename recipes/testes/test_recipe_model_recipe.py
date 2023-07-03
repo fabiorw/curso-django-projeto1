@@ -1,5 +1,5 @@
 from django.core.exceptions import ValidationError
-from parametized import parameterized
+from parameterized import parameterized
 
 from .test_recipe_base import Recipe, RecipeTestBase
 
