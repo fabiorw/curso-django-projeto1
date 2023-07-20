@@ -49,6 +49,7 @@ def search(request):
             Q(title__icontains=search_term) |
             Q(description__icontains=search_term),
         ),
+        is_published=True
     ).order_by('-id')
 
     return render(request, 'recipes/pages/search.html', {
