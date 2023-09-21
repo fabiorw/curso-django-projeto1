@@ -17,7 +17,7 @@ def home(request):
         is_published=True
     ).order_by('-id')
     page_obj, pagination_range = make_pagination(request, recipes, PER_PAGE)
-    messages.success(request, 'Epa, você foi pesquisar algo que eu vi.')
+    messages.error(request, 'Epa, você foi pesquisar algo que eu vi.')
     return render(request, 'recipes/pages/home.html', context={
         'recipes': page_obj,
         'pagination_range': pagination_range
