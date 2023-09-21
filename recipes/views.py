@@ -1,6 +1,7 @@
 
 import os
 
+from django.contrib import messages
 from django.db.models import Q
 from django.http.response import Http404
 from django.shortcuts import get_list_or_404, get_object_or_404, render
@@ -16,6 +17,7 @@ def home(request):
         is_published=True
     ).order_by('-id')
     page_obj, pagination_range = make_pagination(request, recipes, PER_PAGE)
+    messages.success(request, 'Epa, você foi pesquisar algo que eu vi.')
     return render(request, 'recipes/pages/home.html', context={
         'recipes': page_obj,
         'pagination_range': pagination_range
@@ -51,6 +53,7 @@ def recipe(request, id):
 
 
 def search(request):
+
     search_term = request.GET.get('q', '').strip()
     if not search_term:
         raise Http404()
