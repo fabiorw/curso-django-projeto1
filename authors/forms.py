@@ -100,3 +100,4 @@ class RegisterForm(forms.ModelForm):
             )
 
         return data
+    
