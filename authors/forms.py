@@ -36,6 +36,7 @@ class RegisterForm(forms.ModelForm):
         add_placeholder(self.fields['last_name'], 'Ex.: Doe')
         add_placeholder(self.fields['password'], 'Type your password')
         add_placeholder(self.fields['password2'], 'Repeat your password')
+        add_attr(self.fields['username'], 'css', 'a-css-class')
 
     password = forms.CharField(
         required=True,
