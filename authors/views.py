@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.http import Http404
 from django.shortcuts import redirect, render
 
-from .forms import RegisterForm
+from .forms import LoginForm, RegisterForm
 from django.urls import reverse
 
 
@@ -35,7 +35,11 @@ def register_create(request):
 
 
 def login_view(request):
-    return render(request, 'authors/pages/login.html')
+    form = LoginForm()
+    return render(request, 'authors/pages/login.html', {
+        'form': form,
+        'form_action': reverse('authors:login_create')
+    })
 
 
 def login_create(request):
